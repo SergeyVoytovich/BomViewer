@@ -10,7 +10,7 @@ The bom.csv file describes how the part numbers in the part.csv file are interre
 Once you have done the tree view, please add a data grid view that shows the component parts of the part that is currently selected in the tree view.  If the part has no components, the data grid view should be blank. Please include the following columns in the data grid view
 
 · COMPONENT_NAME
-· PART_NUMBER,
+· PART_NUMBER
 · TITLE
 · QUANTITY
 · TYPE
