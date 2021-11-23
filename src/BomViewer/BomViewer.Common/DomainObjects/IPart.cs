@@ -26,6 +26,11 @@
         string Title { get; set; }
 
         /// <summary>
+        /// Item
+        /// </summary>
+        string Item { get; set; }
+
+        /// <summary>
         /// Material
         /// </summary>
         string Material { get; set; }
