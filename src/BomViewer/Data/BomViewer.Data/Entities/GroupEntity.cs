@@ -12,7 +12,7 @@ namespace BomViewer.Data.Entities
         #region Parent
 
         [ForeignKey(nameof(Parent))]
-        public int ParentId { get; set; }
+        public int? ParentId { get; set; }
 
         /// <summary>
         /// Parent group
