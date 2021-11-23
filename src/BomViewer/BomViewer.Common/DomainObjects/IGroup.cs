@@ -3,16 +3,16 @@
     /// <summary>
     /// Part group
     /// </summary>
-    public class PartGroup : DomainObjectBase, IPartGroup
+    public interface IGroup : IDomainObjectBase
     {
         /// <summary>
-        /// Parent group
+        /// Parent group id
         /// </summary>
-        public IPartGroup Parent { get; set; }
+        int ParentId { get; set; }
 
         /// <summary>
         /// Group name
         /// </summary>
-        public string Name { get; set; }
+        string Name { get; set; }
     }
 }
