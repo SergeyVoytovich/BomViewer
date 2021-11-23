@@ -8,7 +8,7 @@
         /// <summary>
         /// Parent group
         /// </summary>
-        public IGroup Parent { get; set; }
+        public int ParentId { get; set; }
 
         /// <summary>
         /// Group name
