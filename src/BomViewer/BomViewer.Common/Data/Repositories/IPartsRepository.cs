@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using BomViewer.Common.DomainObjects;
+using BomViewer.DomainObjects;
 
-namespace BomViewer.Common.Data.Repositories
+namespace BomViewer.Data.Repositories
 {
     /// <summary>
     /// Parts repository

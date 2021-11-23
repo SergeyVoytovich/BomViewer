@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BomViewer.Common", "BomViewer.Common\BomViewer.Common.csproj", "{4FD4F750-6883-42D3-BA45-EC857C21B411}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BomViewer.Data", "Data\BomViewer.Data\BomViewer.Data.csproj", "{65F9EFDF-AB4B-49ED-A95A-F100776ABEC8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +23,16 @@ Global
 		{4FD4F750-6883-42D3-BA45-EC857C21B411}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FD4F750-6883-42D3-BA45-EC857C21B411}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FD4F750-6883-42D3-BA45-EC857C21B411}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65F9EFDF-AB4B-49ED-A95A-F100776ABEC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65F9EFDF-AB4B-49ED-A95A-F100776ABEC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65F9EFDF-AB4B-49ED-A95A-F100776ABEC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65F9EFDF-AB4B-49ED-A95A-F100776ABEC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{65F9EFDF-AB4B-49ED-A95A-F100776ABEC8} = {0A0D8386-DCCE-41FC-81EC-96F6D2692D18}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D26275C6-4563-44E7-9A13-FB5DACE08131}

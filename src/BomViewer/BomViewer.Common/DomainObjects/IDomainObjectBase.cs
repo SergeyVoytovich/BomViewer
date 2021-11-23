@@ -1,4 +1,4 @@
-﻿namespace BomViewer.Common.DomainObjects
+﻿namespace BomViewer.DomainObjects
 {
     /// <summary>
     /// Base domain object

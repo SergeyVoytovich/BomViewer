@@ -1,6 +1,6 @@
-﻿using BomViewer.Common.Data.Repositories;
+﻿using BomViewer.Data.Repositories;
 
-namespace BomViewer.Common.Data
+namespace BomViewer.Data
 {
     /// <summary>
     /// Data source

@@ -1,4 +1,4 @@
-﻿namespace BomViewer.Common.DomainObjects
+﻿namespace BomViewer.DomainObjects
 {
     public abstract class DomainObjectBase : IDomainObjectBase
     {
