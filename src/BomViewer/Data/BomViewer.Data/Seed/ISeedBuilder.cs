@@ -1,10 +1,16 @@
 ﻿using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 namespace BomViewer.Data.Seed
 {
+    /// <summary>
+    /// Seed data builder
+    /// </summary>
     internal interface ISeedBuilder
     {
-        Task BuildAsync(ModelBuilder modelBuilder);
+        /// <summary>
+        /// Build seed data async
+        /// </summary>
+        /// <returns></returns>
+        Task BuildAsync();
     }
 }

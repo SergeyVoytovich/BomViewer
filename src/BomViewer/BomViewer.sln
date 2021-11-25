@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BomViewer.Common", "BomView
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BomViewer.Data", "Data\BomViewer.Data\BomViewer.Data.csproj", "{65F9EFDF-AB4B-49ED-A95A-F100776ABEC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BomViewer.Data.Tests", "Data\BomViewer.Data.Tests\BomViewer.Data.Tests.csproj", "{33165EEA-7AAD-43BB-8E68-C5117AE07F65}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,12 +29,17 @@ Global
 		{65F9EFDF-AB4B-49ED-A95A-F100776ABEC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65F9EFDF-AB4B-49ED-A95A-F100776ABEC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65F9EFDF-AB4B-49ED-A95A-F100776ABEC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33165EEA-7AAD-43BB-8E68-C5117AE07F65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33165EEA-7AAD-43BB-8E68-C5117AE07F65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33165EEA-7AAD-43BB-8E68-C5117AE07F65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33165EEA-7AAD-43BB-8E68-C5117AE07F65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{65F9EFDF-AB4B-49ED-A95A-F100776ABEC8} = {0A0D8386-DCCE-41FC-81EC-96F6D2692D18}
+		{33165EEA-7AAD-43BB-8E68-C5117AE07F65} = {0A0D8386-DCCE-41FC-81EC-96F6D2692D18}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D26275C6-4563-44E7-9A13-FB5DACE08131}

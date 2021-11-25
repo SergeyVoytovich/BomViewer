@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using BomViewer.Data.Entities;
+using BomViewer.Data.Seed;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -11,6 +12,13 @@ namespace BomViewer.Data
     /// </summary>
     internal class DataContext : DbContext
     {
+        #region Private members
+
+        private readonly IBuilderFactory _builders;
+
+        #endregion
+
+
         #region Properties
 
         /// <summary>
@@ -22,6 +30,16 @@ namespace BomViewer.Data
         /// Parts
         /// </summary>
         public DbSet<PartEntity> Parts { get; set; }
+
+        #endregion
+
+
+        #region Constructors
+
+        internal DataContext(IBuilderFactory builders)
+        {
+            this._builders = builders;
+        }
 
         #endregion
 
@@ -52,7 +70,7 @@ namespace BomViewer.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             DisableCascadeDeleting(modelBuilder);
-
+            AddSeed(modelBuilder);
             base.OnModelCreating(modelBuilder);
         }
 
@@ -68,6 +86,22 @@ namespace BomViewer.Data
                 fk.DeleteBehavior = DeleteBehavior.NoAction;
             }
         }
+
+        #region AddSeed
+
+        /// <summary>
+        /// Add seed data
+        /// </summary>
+        /// <param name="modelBuilder"></param>
+        private void AddSeed(ModelBuilder modelBuilder) => AddSeed(_builders.Init(modelBuilder));
+
+        /// <summary>
+        /// Add seed data
+        /// </summary>
+        /// <param name="builder"></param>
+        private void AddSeed(ISeedBuilder builder) => builder?.BuildAsync().Wait();
+
+        #endregion
 
         #endregion
     }
