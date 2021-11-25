@@ -31,7 +31,7 @@ namespace BomViewer.Data.Repositories
         public IPartsRepository ByGroups(IList<int> ids)
             => Init(entities => entities.Where(i => i.GroupId != null && ids.Contains((int)i.GroupId)));
 
-        public IPartsRepository ByGroup(IList<IGroup> groups)
+        public IPartsRepository ByGroups(IList<IGroup> groups)
             => ByGroups(groups?.Select(i => i.Id).ToList() ?? new List<int>());
 
         #endregion

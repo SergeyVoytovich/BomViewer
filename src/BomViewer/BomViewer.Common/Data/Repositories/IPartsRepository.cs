@@ -34,6 +34,6 @@ namespace BomViewer.Data.Repositories
         /// </summary>
         /// <param name="groups">List of groups</param>
         /// <returns>Parts repository</returns>
-        IPartsRepository ByGroup(IList<IGroup> groups);
+        IPartsRepository ByGroups(IList<IGroup> groups);
     }
 }

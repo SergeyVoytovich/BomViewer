@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using BomViewer.DomainObjects;
 
 namespace BomViewer.Application
@@ -12,13 +13,13 @@ namespace BomViewer.Application
         /// Get groups
         /// </summary>
         /// <returns></returns>
-        IList<IGroup> GetGroups();
+        Task<IList<IGroup>> GetGroupsAsync();
 
         /// <summary>
         /// Get parts for groups
         /// </summary>
         /// <param name="groups">List of groups</param>
         /// <returns></returns>
-        IList<IPart> GetParts(IList<IGroup> groups);
+        Task<IList<IPart>> GetPartsAsync(IList<IGroup> groups);
     }
 }
