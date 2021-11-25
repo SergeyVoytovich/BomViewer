@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Application\BomViewer.Application\BomViewer.Application.csproj" />
     <ProjectReference Include="..\..\BomViewer.Common\BomViewer.Common.csproj" />
+    <ProjectReference Include="..\..\Data\BomViewer.Data\BomViewer.Data.csproj" />
   </ItemGroup>
 
 </Project>
