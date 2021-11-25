@@ -9,10 +9,16 @@ namespace BomViewer.Data.Mapping
         public SeedProfile()
         {
             CreateMap<GroupSeed, GroupEntity>()
+                .ForMember(dst => dst.Id, opt => opt.Ignore())
+                .ForMember(dst => dst.ParentId, opt => opt.Ignore())
+                .ForMember(dst => dst.Parent, opt => opt.Ignore())
                 .ForMember(dst => dst.Name, opt => opt.MapFrom(src => src.ComponentName))
                 ;
 
             CreateMap<PartSeed, PartEntity>()
+                .ForMember(dst => dst.Id, opt => opt.Ignore())
+                .ForMember(dst => dst.GroupId, opt => opt.Ignore())
+                .ForMember(dst => dst.Group, opt => opt.Ignore())
                 .ForMember(dst => dst.Item, opt => opt.MapFrom(src => src.Item))
                 .ForMember(dst => dst.Material, opt => opt.MapFrom(src => src.Material))
                 .ForMember(dst => dst.Number, opt => opt.MapFrom(src => src.PartNumber))
