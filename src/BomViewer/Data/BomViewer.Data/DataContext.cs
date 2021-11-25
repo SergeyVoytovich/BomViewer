@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using AutoMapper.Internal;
 using BomViewer.Data.Entities;
+using BomViewer.Data.Mapping;
 using BomViewer.Data.Seed;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;
 
 namespace BomViewer.Data
@@ -36,9 +40,13 @@ namespace BomViewer.Data
 
         #region Constructors
 
-        internal DataContext(IBuilderFactory builders)
+        public DataContext() : this(new BuilderFactory(MapperFactory.Init()))
         {
-            this._builders = builders;
+        }
+
+        private DataContext(IBuilderFactory builders)
+        {
+            _builders = builders;
         }
 
         #endregion
@@ -70,22 +78,26 @@ namespace BomViewer.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             DisableCascadeDeleting(modelBuilder);
+
+            //modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
             AddSeed(modelBuilder);
             base.OnModelCreating(modelBuilder);
         }
+
+        #region DisableCascadeDeleting
 
         /// <summary>
         /// Disable cascading deleting for all entities
         /// </summary>
         /// <param name="modelBuilder"></param>
         private void DisableCascadeDeleting(ModelBuilder modelBuilder)
-        {
-            var cascadeFKs = modelBuilder.Model.GetEntityTypes().SelectMany(t => t.GetForeignKeys());
-            foreach (var fk in cascadeFKs)
-            {
-                fk.DeleteBehavior = DeleteBehavior.NoAction;
-            }
-        }
+            => DisableCascadeDeleting(modelBuilder.Model.GetEntityTypes().SelectMany(t => t.GetForeignKeys()));
+
+        private void DisableCascadeDeleting(IEnumerable<IMutableForeignKey> keys) 
+            => keys.ForAll(key => key.DeleteBehavior = DeleteBehavior.NoAction);
+
+        #endregion
 
         #region AddSeed
 

@@ -11,9 +11,8 @@ namespace BomViewer.Data.Entities
     {
         #region Group
 
-        [Required]
         [ForeignKey(nameof(Group))]
-        public int GroupId { get; set; }
+        public int? GroupId { get; set; }
 
         /// <summary>
         /// Parent group
@@ -48,7 +47,7 @@ namespace BomViewer.Data.Entities
         /// Title
         /// </summary>
         [Required]
-        [StringLength(50)]
+        [StringLength(100)]
         public string Title { get; set; }
 
         /// <summary>

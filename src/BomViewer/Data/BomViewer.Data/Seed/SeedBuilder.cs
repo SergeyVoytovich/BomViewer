@@ -83,7 +83,7 @@ namespace BomViewer.Data.Seed
 
             var entity = _mapper.Map<GroupEntity>(seed);
             entity.Id = groups.Count + 1;
-            entity.Parent = groups.FirstOrDefault(i => string.Equals(i.Name, seed.ParentName, StringComparison.OrdinalIgnoreCase));
+            entity.ParentId = groups.FirstOrDefault(i => string.Equals(i.Name, seed.ParentName, StringComparison.OrdinalIgnoreCase))?.Id;
 
             _builder.HasData(entity);
             return entity;
@@ -114,9 +114,11 @@ namespace BomViewer.Data.Seed
 
         internal virtual int BuildPart(IEnumerable<GroupEntity> groups, PartSeed part, int id)
         {
+            
+
             var entity = _mapper.Map<PartEntity>(part);
             entity.Id = id + 1;
-            entity.Group = groups.FirstOrDefault(g => string.Equals(g.Name, part.Name, StringComparison.OrdinalIgnoreCase));
+            entity.GroupId = groups.FirstOrDefault(g => string.Equals(g.Name, part.Name, StringComparison.OrdinalIgnoreCase))?.Id;
 
             _builder.HasData(entity);
             return entity.Id;

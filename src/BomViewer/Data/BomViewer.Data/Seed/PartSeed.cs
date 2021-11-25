@@ -10,37 +10,37 @@ namespace BomViewer.Data.Seed
         /// <summary>
         /// Component name
         /// </summary>
-        [Index(1)]
+        [Index(0)]
         public string Name { get; set; }
 
         /// <summary>
         /// Type
         /// </summary>
-        [Index(2)]
+        [Index(1)]
         public string Type { get; set; }
 
         /// <summary>
         /// Item
         /// </summary>
-        [Index(3)]
+        [Index(2)]
         public string Item { get; set; }
 
         /// <summary>
         /// Part number
         /// </summary>
-        [Index(4)]
+        [Index(3)]
         public string PartNumber { get; set; }
 
         /// <summary>
         /// Title
         /// </summary>
-        [Index(5)]
+        [Index(4)]
         public string Title { get; set; }
 
         /// <summary>
         /// Material
         /// </summary>
-        [Index(6)]
+        [Index(5)]
         public string Material { get; set; }
     }
 }

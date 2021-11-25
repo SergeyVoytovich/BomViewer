@@ -15,18 +15,16 @@ namespace BomViewer.Data.Seed.Readers
             _path = string.IsNullOrWhiteSpace(path) ? throw new ArgumentNullException(nameof(path)) : path;
         }
 
-        public IAsyncEnumerable<T> ReadAsync()
+        public async IAsyncEnumerable<T> ReadAsync()
         {
             using var reader = new StreamReader(_path);
-            return ReadAsync(reader);
-        }
-
-        internal IAsyncEnumerable<T> ReadAsync(StreamReader reader)
-        {
             using var csvReader = new CsvReader(reader, CultureInfo.InvariantCulture);
-            return ReadAsync(csvReader);
+            var enumerator = csvReader.GetRecordsAsync<T>().GetAsyncEnumerator();
+            while (await enumerator.MoveNextAsync())
+            {
+                yield return enumerator.Current;
+            }
         }
-
-        internal IAsyncEnumerable<T> ReadAsync(CsvReader reader) => reader.GetRecordsAsync<T>();
+        
     }
 }
