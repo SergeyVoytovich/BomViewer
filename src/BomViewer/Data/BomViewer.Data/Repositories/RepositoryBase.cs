@@ -51,7 +51,7 @@ namespace BomViewer.Data.Repositories
 
         #region Fluent
 
-        protected abstract TRepository Init(IQueryable<TEntity> aQuery, IMapper mapper);
+        protected abstract TRepository Init(IQueryable<TEntity> query, IMapper mapper);
 
         internal TRepository Init(Func<IQueryable<TEntity>, IQueryable<TEntity>> aPredicate)
             => Init(aPredicate(Query), Mapper);
