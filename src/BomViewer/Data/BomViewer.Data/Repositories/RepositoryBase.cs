@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BomViewer.Data.Repositories
 {
-    internal abstract class RepositoryBase<TDomain, TEntity, TRepository> : IRepository<TDomain>
+    public abstract class RepositoryBase<TDomain, TEntity, TRepository> : IRepository<TDomain>
         where TDomain : IDomainObject
         where TEntity : EntityBase
         where TRepository : IRepository<TDomain>
