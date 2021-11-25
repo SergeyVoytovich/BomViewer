@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BomViewer.Application", "Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BomViewer.Application.Tests", "Application\BomViewer.Application.Tests\BomViewer.Application.Tests.csproj", "{81BB167F-9722-475B-9967-97EAE02975DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BomViewer.Presentation.Wpf", "Presentation\BomViewer.Presentation.Wpf\BomViewer.Presentation.Wpf.csproj", "{8C184AB0-3C8F-4A02-B753-AEF76F6A9EA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{81BB167F-9722-475B-9967-97EAE02975DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81BB167F-9722-475B-9967-97EAE02975DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81BB167F-9722-475B-9967-97EAE02975DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C184AB0-3C8F-4A02-B753-AEF76F6A9EA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C184AB0-3C8F-4A02-B753-AEF76F6A9EA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C184AB0-3C8F-4A02-B753-AEF76F6A9EA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C184AB0-3C8F-4A02-B753-AEF76F6A9EA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +60,7 @@ Global
 		{33165EEA-7AAD-43BB-8E68-C5117AE07F65} = {0A0D8386-DCCE-41FC-81EC-96F6D2692D18}
 		{6AB8BABD-EB7B-46B0-A774-EF6ED237B078} = {E32E749D-04EF-4CF0-8D4B-63E558C0D235}
 		{81BB167F-9722-475B-9967-97EAE02975DF} = {E32E749D-04EF-4CF0-8D4B-63E558C0D235}
+		{8C184AB0-3C8F-4A02-B753-AEF76F6A9EA5} = {BD121163-B869-4170-BAA6-8384CEA3DD10}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D26275C6-4563-44E7-9A13-FB5DACE08131}
