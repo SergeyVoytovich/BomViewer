@@ -1,6 +1,6 @@
 ﻿namespace BomViewer.DomainObjects
 {
-    public abstract class DomainObjectBase : IDomainObjectBase
+    public abstract class DomainObjectBase : IDomainObject
     {
         /// <summary>
         /// Identifier

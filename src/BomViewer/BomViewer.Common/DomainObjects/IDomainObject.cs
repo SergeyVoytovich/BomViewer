@@ -3,7 +3,7 @@
     /// <summary>
     /// Base domain object
     /// </summary>
-    public interface IDomainObjectBase
+    public interface IDomainObject
     {
         /// <summary>
         /// Identifier

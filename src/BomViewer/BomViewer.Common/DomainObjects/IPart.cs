@@ -3,7 +3,7 @@
     /// <summary>
     /// Part
     /// </summary>
-    public interface IPart : IDomainObjectBase
+    public interface IPart : IDomainObject
     {
         /// <summary>
         /// Group id

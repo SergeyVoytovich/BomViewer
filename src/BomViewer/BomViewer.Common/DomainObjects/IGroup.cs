@@ -3,7 +3,7 @@
     /// <summary>
     /// Part group
     /// </summary>
-    public interface IGroup : IDomainObjectBase
+    public interface IGroup : IDomainObject
     {
         /// <summary>
         /// Parent group id
