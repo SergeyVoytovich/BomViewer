@@ -6,6 +6,7 @@
         xmlns:viewModels="clr-namespace:BomViewer.Presentation.Wpf.ViewModels"
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:behaviors="clr-namespace:BomViewer.Presentation.Wpf.Behaviors"
+        xmlns:loc="clr-namespace:BomViewer.Presentation.Wpf.Assets.Localization"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="450" 
@@ -45,7 +46,7 @@
                 Width="100"
                 Height="20"
                 Visibility="{Binding Groups, Converter={StaticResource TreeLoadingLabelVisibilityConverter}}">
-            <TextBlock Text="Loading..."/>
+            <TextBlock Text="{x:Static loc:Strings.Loading}"/>
         </Border>
 
         <Button Grid.Column="0"
