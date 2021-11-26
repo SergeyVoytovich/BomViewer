@@ -5,16 +5,6 @@
         #region Properties
 
         /// <summary>
-        /// Group id
-        /// </summary>
-        public int GroupId { get; set; }
-
-        /// <summary>
-        /// Parent name
-        /// </summary>
-        public string ParentName { get; set; }
-
-        /// <summary>
         /// Component name
         /// </summary>
         public string ComponentName { get; set; }

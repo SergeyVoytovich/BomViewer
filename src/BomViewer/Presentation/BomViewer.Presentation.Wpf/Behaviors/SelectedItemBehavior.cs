@@ -1,11 +1,14 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using Microsoft.Xaml.Behaviors;
 
 namespace BomViewer.Presentation.Wpf.Behaviors
 {
     public class SelectedItemBehavior : Behavior<TreeView>
     {
+        #region Properties
+
         #region SelectedItem
 
         public object SelectedItem
@@ -27,6 +30,25 @@ namespace BomViewer.Presentation.Wpf.Behaviors
 
         #endregion
 
+
+        #region Command
+
+        public static readonly DependencyProperty CommandProperty = DependencyProperty.Register(
+            "Command", typeof(ICommand), typeof(SelectedItemBehavior), new PropertyMetadata(default(ICommand)));
+
+        public ICommand Command
+        {
+            get => (ICommand) GetValue(CommandProperty);
+            set => SetValue(CommandProperty, value);
+        }
+
+        #endregion
+
+        #endregion
+
+
+        #region Methods
+
         protected override void OnAttached()
         {
             base.OnAttached();
@@ -47,6 +69,13 @@ namespace BomViewer.Presentation.Wpf.Behaviors
         private void OnTreeViewSelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             SelectedItem = e.NewValue;
+
+            if (Command?.CanExecute(e.NewValue) == true)
+            {
+                Command?.Execute(e.NewValue);
+            }
         }
+
+        #endregion
     }
 }

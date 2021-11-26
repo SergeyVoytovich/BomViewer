@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -37,9 +36,9 @@ namespace BomViewer.Presentation.Wpf.ViewModels
         /// <summary>
         /// Parts
         /// </summary>
-        public ObservableCollection<IPart> Parts
+        public IList<PartViewModel> Parts
         {
-            get => Get<ObservableCollection<IPart>>();
+            get => Get<IList<PartViewModel>>();
             set => Set(value);
         }
 
@@ -47,6 +46,11 @@ namespace BomViewer.Presentation.Wpf.ViewModels
         /// Populate data in tree command
         /// </summary>
         public ICommand LoadGroupsCommand { get; }
+
+        /// <summary>
+        /// Load parts command
+        /// </summary>
+        public ICommand LoadPartsCommand { get; }
 
         /// <summary>
         /// Exit command
@@ -61,8 +65,12 @@ namespace BomViewer.Presentation.Wpf.ViewModels
         public MainViewModel(ViewModelEnvironment environment) : base(environment)
         {
             LoadGroupsCommand = new AsyncCommand(LoadGroupsAsync, () => Groups != null);
+            LoadPartsCommand = new AsyncCommand<GroupViewModel>(LoadPartsAsync, g => g != null);
+
             Groups = new List<GroupViewModel>();
         }
+
+
 
         #endregion
 
@@ -97,6 +105,43 @@ namespace BomViewer.Presentation.Wpf.ViewModels
                         );
                 }
             ).ToList();
+
+        internal virtual Task LoadPartsAsync(GroupViewModel group)
+        {
+            Parts = null;
+            return LoadPartsAsync(Expand(group));
+        }
+
+        internal virtual Task LoadPartsAsync(IList<GroupViewModel> groups)
+            => LoadPartsAsync(Mapper.Map<IList<IGroup>>(groups));
+
+        internal virtual async Task LoadPartsAsync(IList<IGroup> groups)
+        {
+            Parts = MapParts(groups, await Application.GetPartsAsync(groups));
+        }
+
+        internal virtual IList<PartViewModel> MapParts(IList<IGroup> groups, IList<IPart> parts)
+            => groups.Select(g => MapPart(g, parts.FirstOrDefault(p => p.GroupId == g.Id))).ToList();
+
+        internal virtual PartViewModel MapPart(IGroup group, IPart part)
+        {
+            var result = Mapper.Map<IGroup, PartViewModel>(
+                group,
+                opt => opt.ConstructServicesUsing(
+                    _ => ViewModel(e => new PartViewModel(e))
+                )
+            );
+
+            return part is null ? result : Mapper.Map(part, result);
+        }
+
+        internal virtual IList<GroupViewModel> Expand(GroupViewModel group)
+            => Expand(new[] {group});
+
+        internal virtual IList<GroupViewModel> Expand(IList<GroupViewModel> groups)
+            => groups?.Any() == true 
+                ? groups.Concat(Expand(groups.SelectMany(i => i.Children).ToList())).ToList()
+                : new List<GroupViewModel>();
 
         #endregion
     }

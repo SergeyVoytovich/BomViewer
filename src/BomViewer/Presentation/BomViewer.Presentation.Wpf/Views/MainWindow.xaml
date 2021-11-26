@@ -36,7 +36,8 @@
             </TreeView.Resources>
 
             <b:Interaction.Behaviors>
-                <behaviors:SelectedItemBehavior SelectedItem="{Binding SelectedGroup, Mode=TwoWay}" />
+                <behaviors:SelectedItemBehavior SelectedItem="{Binding SelectedGroup, Mode=TwoWay}"
+                                                Command="{Binding LoadPartsCommand}"/>
             </b:Interaction.Behaviors>
 
         </TreeView>

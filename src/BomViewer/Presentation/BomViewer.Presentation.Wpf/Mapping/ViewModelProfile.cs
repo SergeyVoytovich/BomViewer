@@ -14,7 +14,25 @@ namespace BomViewer.Presentation.Wpf.Mapping
                 .ForMember(dst => dst.Name, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dst => dst.Children, opt => opt.Ignore())
                 .ForMember(dst => dst.Parent, opt => opt.Ignore())
+                .ReverseMap()
+                .ForMember(dst => dst.ParentId, opt => opt.MapFrom(src => src.Parent.Id))
             ;
+
+            CreateMap<IGroup, PartViewModel>()
+                .ConstructUsingServiceLocator()
+                .ForMember(dst => dst.ComponentName, opt => opt.MapFrom(src => src.Name))
+                .ForAllOtherMembers(opt => opt.Ignore())
+                ;
+
+            CreateMap<IPart, PartViewModel>()
+                .ConstructUsingServiceLocator()
+                .ForMember(dst => dst.ComponentName, opt => opt.Ignore())
+                .ForMember(dst => dst.Item, opt => opt.MapFrom(src => src.Item))
+                .ForMember(dst => dst.Title, opt => opt.MapFrom(src => src.Title))
+                .ForMember(dst => dst.Number, opt => opt.MapFrom(src => src.Number))
+                .ForMember(dst => dst.Type, opt => opt.MapFrom(src => src.Type))
+                .ForMember(dst => dst.Quantity, opt => opt.MapFrom(src => 1))
+                ;
         }
     }
 }
