@@ -8,7 +8,7 @@
         /// <summary>
         /// Group id
         /// </summary>
-        public int GroupId { get; set; }
+        public int? GroupId { get; set; }
 
         /// <summary>
         /// Type

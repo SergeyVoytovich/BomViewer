@@ -52,7 +52,7 @@ namespace BomViewer.Presentation.Wpf.ViewModels
         /// <summary>
         /// Main view model
         /// </summary>
-        public MainViewModel Main => new(_application);
+        public MainViewModel Main => new(new ViewModelEnvironment(_application));
 
         #endregion
     }

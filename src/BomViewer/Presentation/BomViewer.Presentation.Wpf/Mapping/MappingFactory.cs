@@ -1,15 +1,14 @@
 ﻿using AutoMapper;
 
-namespace BomViewer.Data.Mapping
+namespace BomViewer.Presentation.Wpf.Mapping
 {
-    internal static class MapperFactory
+    public class MappingFactory
     {
         public static IMapper Init()
         {
             var config = new MapperConfiguration(c =>
             {
-                c.AddProfile<SeedProfile>();
-                c.AddProfile<EntityProfile>();
+                c.AddProfile<ViewModelProfile>();
             });
 
             config.AssertConfigurationIsValid();

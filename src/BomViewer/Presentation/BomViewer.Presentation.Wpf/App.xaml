@@ -1,8 +1,13 @@
 ﻿<Application x:Class="BomViewer.Presentation.Wpf.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:viewModels="clr-namespace:BomViewer.Presentation.Wpf.ViewModels"
+             xmlns:converters="clr-namespace:BomViewer.Presentation.Wpf.Converters"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-         
+        <viewModels:ViewModelsFactory x:Key="Factory"/>
+
+        <converters:NullableToBoolConverter x:Key="TreeIsEnableConverter"/>
+
     </Application.Resources>
 </Application>

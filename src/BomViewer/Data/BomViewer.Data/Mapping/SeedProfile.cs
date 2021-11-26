@@ -4,7 +4,7 @@ using BomViewer.Data.Seed;
 
 namespace BomViewer.Data.Mapping
 {
-    public class SeedProfile : Profile
+    internal class SeedProfile : Profile
     {
         public SeedProfile()
         {

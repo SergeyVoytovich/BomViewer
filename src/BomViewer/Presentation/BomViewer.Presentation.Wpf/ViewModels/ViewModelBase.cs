@@ -1,4 +1,5 @@
 ﻿using System;
+using AutoMapper;
 using BomViewer.Application;
 
 namespace BomViewer.Presentation.Wpf.ViewModels
@@ -15,6 +16,11 @@ namespace BomViewer.Presentation.Wpf.ViewModels
         /// </summary>
         protected IApplication Application { get; }
 
+        /// <summary>
+        /// Mapper
+        /// </summary>
+        protected IMapper Mapper { get; }
+
         #endregion
 
 
@@ -23,11 +29,20 @@ namespace BomViewer.Presentation.Wpf.ViewModels
         /// <summary>
         /// Initialized new instance
         /// </summary>
-        /// <param name="application">Application</param>
-        protected ViewModelBase(IApplication application)
+        /// <param name="environment">The view model environment</param>
+        protected ViewModelBase(ViewModelEnvironment environment)
         {
-            Application = application ?? throw new ArgumentNullException(nameof(application));
+            Application = environment.Application ?? throw new ArgumentNullException(nameof(ViewModelEnvironment.Application));
+            Mapper = environment.Mapper ?? throw new ArgumentNullException(nameof(ViewModelEnvironment.Mapper));
         }
+
+        #endregion
+
+
+        #region Methods
+
+        protected virtual T ViewModel<T>(Func<ViewModelEnvironment, T> init)
+            => init(new ViewModelEnvironment(Application, Mapper));
 
         #endregion
     }

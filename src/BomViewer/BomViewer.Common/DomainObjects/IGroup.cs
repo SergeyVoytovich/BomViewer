@@ -8,7 +8,7 @@
         /// <summary>
         /// Parent group id
         /// </summary>
-        int ParentId { get; set; }
+        int? ParentId { get; set; }
 
         /// <summary>
         /// Group name
