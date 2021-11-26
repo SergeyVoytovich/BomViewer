@@ -40,6 +40,14 @@
 
         </TreeView>
 
+        <Border Grid.Row="0"
+                Grid.Column="0"
+                Width="100"
+                Height="20"
+                Visibility="{Binding Groups, Converter={StaticResource TreeLoadingLabelVisibilityConverter}}">
+            <TextBlock Text="Loading..."/>
+        </Border>
+
         <Button Grid.Column="0"
                 Margin="8"
                 Padding="8"
