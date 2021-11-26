@@ -61,11 +61,29 @@ namespace BomViewer.Presentation.Wpf.Assets.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Component name.
+        /// </summary>
+        public static string ComponentNameHeader {
+            get {
+                return ResourceManager.GetString("ComponentNameHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No group selected. Select a group to load details..
         /// </summary>
         public static string GroupNotSelected {
             get {
                 return ResourceManager.GetString("GroupNotSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item.
+        /// </summary>
+        public static string ItemHeader {
+            get {
+                return ResourceManager.GetString("ItemHeader", resourceCulture);
             }
         }
         
@@ -88,11 +106,56 @@ namespace BomViewer.Presentation.Wpf.Assets.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Material.
+        /// </summary>
+        public static string MaterialHeader {
+            get {
+                return ResourceManager.GetString("MaterialHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Part number.
+        /// </summary>
+        public static string PartNumberHeader {
+            get {
+                return ResourceManager.GetString("PartNumberHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quanitity.
+        /// </summary>
+        public static string QuantityHeader {
+            get {
+                return ResourceManager.GetString("QuantityHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Selected group.
         /// </summary>
         public static string SelectedGroup {
             get {
                 return ResourceManager.GetString("SelectedGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string TitleHeader {
+            get {
+                return ResourceManager.GetString("TitleHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string TypeHeader {
+            get {
+                return ResourceManager.GetString("TypeHeader", resourceCulture);
             }
         }
     }

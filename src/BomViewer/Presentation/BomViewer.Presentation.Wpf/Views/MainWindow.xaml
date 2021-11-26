@@ -84,6 +84,27 @@
                 </TextBlock.Text>
             </TextBlock>
 
+            <DataGrid Grid.Row="1"
+                      ItemsSource="{Binding Parts}"
+                      IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{x:Static loc:Strings.ComponentNameHeader}"
+                                        Binding="{Binding ComponentName}"/>
+                    <DataGridTextColumn Header="{x:Static loc:Strings.PartNumberHeader}"
+                                        Binding="{Binding Number}"/>
+                    <DataGridTextColumn Header="{x:Static loc:Strings.TitleHeader}"
+                                        Binding="{Binding Title}"/>
+                    <DataGridTextColumn Header="{x:Static loc:Strings.QuantityHeader}"
+                                        Binding="{Binding Quantity}"/>
+                    <DataGridTextColumn Header="{x:Static loc:Strings.TypeHeader}"
+                                        Binding="{Binding Type}"/>
+                    <DataGridTextColumn Header="{x:Static loc:Strings.ItemHeader}"
+                                        Binding="{Binding Item}"/>
+                    <DataGridTextColumn Header="{x:Static loc:Strings.MaterialHeader}"
+                                        Binding="{Binding Material}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
         </Grid>
 
     </Grid>
