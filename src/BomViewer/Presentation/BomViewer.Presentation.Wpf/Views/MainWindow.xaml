@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:BomViewer.Presentation.Wpf.ViewModels"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:behaviors="clr-namespace:BomViewer.Presentation.Wpf.Behaviors"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="450" 
@@ -21,18 +23,22 @@
             <ColumnDefinition Width="7*"/>
         </Grid.ColumnDefinitions>
 
-        <TreeView Grid.Column="0"
-                  Grid.Row="0"
+        <TreeView Grid.Row="0"
                   ItemsSource="{Binding Groups}"
                   IsEnabled="{Binding Groups, Converter={StaticResource TreeIsEnableConverter}}">
+
             <TreeView.Resources>
                 <HierarchicalDataTemplate DataType="{x:Type viewModels:GroupViewModel}"
                                           ItemsSource="{Binding Path=Children}">
-                    <TreeViewItem Header="{Binding Path=Name}"  />
+                    <TextBlock Text="{Binding Path=Name}" />
                 </HierarchicalDataTemplate>
             </TreeView.Resources>
-        </TreeView>
 
+            <b:Interaction.Behaviors>
+                <behaviors:SelectedItemBehavior SelectedItem="{Binding SelectedGroup, Mode=TwoWay}" />
+            </b:Interaction.Behaviors>
+
+        </TreeView>
 
         <Button Grid.Column="0"
                 Margin="8"
