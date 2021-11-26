@@ -11,6 +11,9 @@
         <converters:NullableToVisibleConverter x:Key="TreeLoadingLabelVisibilityConverter"
                                                Nullable="Visible"
                                                NotNullable="Collapsed"/>
+        <converters:NullableToVisibleConverter x:Key="NoGroupSelectedLabelVisibilityConverter"
+                                               Nullable="Visible"
+                                               NotNullable="Collapsed"/>
 
     </Application.Resources>
 </Application>
