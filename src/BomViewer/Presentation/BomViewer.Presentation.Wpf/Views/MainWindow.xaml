@@ -62,5 +62,28 @@
                    HorizontalAlignment="Center"
                    Text="{x:Static loc:Strings.GroupNotSelected}"
                    Visibility="{Binding SelectedGroup, Converter={StaticResource NoGroupSelectedLabelVisibilityConverter}}"/>
+
+        <Grid Grid.Row="0"
+              Grid.Column="1"
+              Margin="8"
+              Visibility="{Binding SelectedGroup, Converter={StaticResource PartsVisibilityConverter}}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0">
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}{0}: {1}">
+                        <Binding Source="{x:Static loc:Strings.SelectedGroup}"  />
+                        <Binding Path="SelectedGroup"
+                                 Converter="{StaticResource GroupPathToStringConverter}"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+
+        </Grid>
+
     </Grid>
 </Window>

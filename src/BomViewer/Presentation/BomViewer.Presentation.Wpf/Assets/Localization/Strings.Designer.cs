@@ -86,5 +86,14 @@ namespace BomViewer.Presentation.Wpf.Assets.Localization {
                 return ResourceManager.GetString("Loading", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected group.
+        /// </summary>
+        public static string SelectedGroup {
+            get {
+                return ResourceManager.GetString("SelectedGroup", resourceCulture);
+            }
+        }
     }
 }

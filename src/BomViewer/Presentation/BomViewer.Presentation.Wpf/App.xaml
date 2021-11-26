@@ -15,5 +15,9 @@
                                                Nullable="Visible"
                                                NotNullable="Collapsed"/>
 
+        <converters:NullableToVisibleConverter x:Key="PartsVisibilityConverter"
+                                               Nullable="Collapsed"
+                                               NotNullable="Visible"/>
+        <converters:GroupPathToStringConverter x:Key="GroupPathToStringConverter"/>
     </Application.Resources>
 </Application>

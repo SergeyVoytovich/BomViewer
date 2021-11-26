@@ -74,20 +74,25 @@ namespace BomViewer.Presentation.Wpf.ViewModels
             Groups = null;
             SelectedGroup = null;
 
-            var groups = await Application.GetGroupsAsync();
-            Groups = MapGroups(groups.Where(i => !i.ParentId.HasValue), groups);
+            Groups = MapGroups(await Application.GetGroupsAsync());
         }
 
-        private List<GroupViewModel> MapGroups(IEnumerable<IGroup> toMap, IList<IGroup> source) 
+        private List<GroupViewModel> MapGroups(IList<IGroup> groups)
+            => MapGroups(groups.Where(i => !i.ParentId.HasValue), groups);
+
+        private List<GroupViewModel> MapGroups(IEnumerable<IGroup> toMap, IList<IGroup> source)
+            => MapGroups(toMap, source, null);
+
+        private List<GroupViewModel> MapGroups(IEnumerable<IGroup> toMap, IList<IGroup> source, GroupViewModel parent)
             => Mapper.Map<IEnumerable<IGroup>, IList<GroupViewModel>>
             (
                 toMap,
                 options =>
                 {
-                    options.ConstructServicesUsing(_ => ViewModel(e => new GroupViewModel(e)));
+                    options.ConstructServicesUsing(_ => ViewModel(e => new GroupViewModel(e) { Parent = parent }));
                     options.AfterMap(
                         (_, dst) => dst.ForAll(
-                            g => g.Children = MapGroups(source.Where(i => i.ParentId == g.Id), source)
+                            g => g.Children = MapGroups(source.Where(i => i.ParentId == g.Id), source, g)
                             )
                         );
                 }

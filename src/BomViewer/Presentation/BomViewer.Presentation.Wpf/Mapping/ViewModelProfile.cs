@@ -13,6 +13,7 @@ namespace BomViewer.Presentation.Wpf.Mapping
                 .ForMember(dst => dst.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dst => dst.Name, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dst => dst.Children, opt => opt.Ignore())
+                .ForMember(dst => dst.Parent, opt => opt.Ignore())
             ;
         }
     }

@@ -8,6 +8,7 @@ namespace BomViewer.Presentation.Wpf.ViewModels
 
         public int Id { get; set; }
         public string Name { get; set; }
+        public GroupViewModel Parent { get; set; }
         public IList<GroupViewModel> Children { get; set; } = new List<GroupViewModel>();
 
         #endregion
