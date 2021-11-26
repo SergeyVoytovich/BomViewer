@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using AutoMapper.Internal;
 using BomViewer.DomainObjects;
@@ -66,11 +67,10 @@ namespace BomViewer.Presentation.Wpf.ViewModels
         {
             LoadGroupsCommand = new AsyncCommand(LoadGroupsAsync, () => Groups != null);
             LoadPartsCommand = new AsyncCommand<GroupViewModel>(LoadPartsAsync, g => g != null);
+            ExitCommand = new Command<Window>(CloseWindow);
 
             Groups = new List<GroupViewModel>();
         }
-
-
 
         #endregion
 
@@ -142,6 +142,9 @@ namespace BomViewer.Presentation.Wpf.ViewModels
             => groups?.Any() == true 
                 ? groups.Concat(Expand(groups.SelectMany(i => i.Children).ToList())).ToList()
                 : new List<GroupViewModel>();
+
+        internal virtual void CloseWindow(Window window)
+            => window?.Close();
 
         #endregion
     }

@@ -70,6 +70,15 @@ namespace BomViewer.Presentation.Wpf.Assets.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exit.
+        /// </summary>
+        public static string Exit {
+            get {
+                return ResourceManager.GetString("Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No group selected. Select a group to load details..
         /// </summary>
         public static string GroupNotSelected {

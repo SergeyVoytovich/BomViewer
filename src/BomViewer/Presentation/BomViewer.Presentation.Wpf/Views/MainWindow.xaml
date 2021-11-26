@@ -11,7 +11,8 @@
         Title="MainWindow"
         Height="450" 
         Width="800"
-        DataContext="{Binding Source={StaticResource Factory}, Path=Main}">
+        DataContext="{Binding Source={StaticResource Factory}, Path=Main}"
+        x:Name="Window">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -129,6 +130,15 @@
             </TextBlock>
 
         </Grid>
+
+        <Button Grid.Column="1"
+                Grid.Row="1"
+                Margin="8"
+                Padding="8"
+                HorizontalAlignment="Right"
+                Content="{x:Static loc:Strings.Exit}"
+                Command="{Binding ExitCommand}"
+                CommandParameter="{Binding ElementName=Window}"/>
 
     </Grid>
 </Window>
