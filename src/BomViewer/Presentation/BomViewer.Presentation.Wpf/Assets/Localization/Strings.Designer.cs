@@ -142,6 +142,15 @@ namespace BomViewer.Presentation.Wpf.Assets.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Selected part.
+        /// </summary>
+        public static string SelectedPart {
+            get {
+                return ResourceManager.GetString("SelectedPart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Title.
         /// </summary>
         public static string TitleHeader {

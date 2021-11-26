@@ -144,6 +144,9 @@
   <data name="SelectedGroup" xml:space="preserve">
     <value>Selected group</value>
   </data>
+  <data name="SelectedPart" xml:space="preserve">
+    <value>Selected part</value>
+  </data>
   <data name="TitleHeader" xml:space="preserve">
     <value>Title</value>
   </data>

@@ -8,7 +8,7 @@
         <viewModels:ViewModelsFactory x:Key="Factory"/>
 
         <converters:NullableToBoolConverter x:Key="TreeIsEnableConverter"/>
-        <converters:NullableToVisibleConverter x:Key="TreeLoadingLabelVisibilityConverter"
+        <converters:NullableToVisibleConverter x:Key="LoadingLabelVisibilityConverter"
                                                Nullable="Visible"
                                                NotNullable="Collapsed"/>
         <converters:NullableToVisibleConverter x:Key="NoGroupSelectedLabelVisibilityConverter"

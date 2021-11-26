@@ -25,6 +25,7 @@
         </Grid.ColumnDefinitions>
 
         <TreeView Grid.Row="0"
+                  Margin="0 0 4 0"
                   ItemsSource="{Binding Groups}"
                   IsEnabled="{Binding Groups, Converter={StaticResource TreeIsEnableConverter}}">
 
@@ -46,7 +47,7 @@
                 Grid.Column="0"
                 Width="100"
                 Height="20"
-                Visibility="{Binding Groups, Converter={StaticResource TreeLoadingLabelVisibilityConverter}}">
+                Visibility="{Binding Groups, Converter={StaticResource LoadingLabelVisibilityConverter}}">
             <TextBlock Text="{x:Static loc:Strings.Loading}"/>
         </Border>
 
@@ -66,15 +67,17 @@
 
         <Grid Grid.Row="0"
               Grid.Column="1"
-              Margin="8"
+              Margin="4 0 0 0"
               Visibility="{Binding SelectedGroup, Converter={StaticResource PartsVisibilityConverter}}">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0">
+            <TextBlock Grid.Row="0"
+                       Margin="0 0 0 8">
                 <TextBlock.Text>
                     <MultiBinding StringFormat="{}{0}: {1}">
                         <Binding Source="{x:Static loc:Strings.SelectedGroup}"  />
@@ -84,7 +87,16 @@
                 </TextBlock.Text>
             </TextBlock>
 
-            <DataGrid Grid.Row="1"
+
+            <Border Grid.Row="1"
+                    Width="100"
+                    Height="20"
+                    Visibility="{Binding Parts, Converter={StaticResource LoadingLabelVisibilityConverter}}">
+                <TextBlock Text="{x:Static loc:Strings.Loading}"/>
+            </Border>
+
+            <DataGrid x:Name="PartsGrid" 
+                      Grid.Row="1"
                       ItemsSource="{Binding Parts}"
                       IsReadOnly="True">
                 <DataGrid.Columns>
@@ -104,6 +116,17 @@
                                         Binding="{Binding Material}"/>
                 </DataGrid.Columns>
             </DataGrid>
+
+            <TextBlock Grid.Row="2"
+                       Margin="0 8 0 0">
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}{0}: {1}">
+                        <Binding Source="{x:Static loc:Strings.SelectedPart}"  />
+                        <Binding ElementName="PartsGrid"
+                                 Path="SelectedItem.ComponentName"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
 
         </Grid>
 
