@@ -114,8 +114,6 @@ namespace BomViewer.Data.Seed
 
         internal virtual int BuildPart(IEnumerable<GroupEntity> groups, PartSeed part, int id)
         {
-            
-
             var entity = _mapper.Map<PartEntity>(part);
             entity.Id = id + 1;
             entity.GroupId = groups.FirstOrDefault(g => string.Equals(g.Name, part.Name, StringComparison.OrdinalIgnoreCase))?.Id;

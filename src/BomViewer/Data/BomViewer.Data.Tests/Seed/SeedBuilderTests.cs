@@ -142,7 +142,7 @@ namespace BomViewer.Data.Tests.Seed
             var entityBuilder = new Mock<IEntityBuilder>();
             entityBuilder.Setup(b => b.HasData(It.IsAny<It.IsAnyType>()));
             var builder = new Mock<SeedBuilder>(readers.Object, mapper, entityBuilder.Object) { CallBase = true };
-            var parent = new GroupEntity { Name = "test" };
+            var parent = new GroupEntity {Id = 1, Name = "test" };
 
             //Action
 
@@ -150,7 +150,7 @@ namespace BomViewer.Data.Tests.Seed
 
             // Assert
             actual.Should().NotBeNull();
-            actual.Parent.Should().NotBeNull().And.Be(parent);
+            actual.ParentId.Should().NotBe(0);
             entityBuilder.Verify(b => b.HasData(It.IsAny<It.IsAnyType>()));
         }
 
@@ -247,7 +247,7 @@ namespace BomViewer.Data.Tests.Seed
             var entityBuilder = new Mock<IEntityBuilder>();
             entityBuilder.Setup(b => b.HasData(It.IsAny<It.IsAnyType>()));
             var builder = new Mock<SeedBuilder>(readers.Object, mapper, entityBuilder.Object) { CallBase = true };
-            var groups = new List<GroupEntity> {new GroupEntity {Name = "test"}};
+            var groups = new List<GroupEntity> {new() {Id = 1, Name = "test"}};
             var seed = new PartSeed {Name = "test"};
             const int id = 1;
 
@@ -255,7 +255,7 @@ namespace BomViewer.Data.Tests.Seed
             builder.Object.BuildPart(groups, seed, id);
 
             // Assert
-            entityBuilder.Verify(b => b.HasData(It.Is<PartEntity>(p => p.Id == id + 1 && p.Group == groups.First())));
+            entityBuilder.Verify(b => b.HasData(It.Is<PartEntity>(p => p.Id == id + 1 && p.GroupId == groups.First().Id)));
         }
 
         #endregion
