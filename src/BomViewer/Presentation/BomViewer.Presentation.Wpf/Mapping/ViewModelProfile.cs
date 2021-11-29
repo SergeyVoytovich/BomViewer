@@ -4,8 +4,14 @@ using BomViewer.Presentation.Wpf.ViewModels;
 
 namespace BomViewer.Presentation.Wpf.Mapping
 {
+    /// <summary>
+    /// View models mapping profile
+    /// </summary>
     public class ViewModelProfile : Profile
     {
+        /// <summary>
+        /// Init new instance
+        /// </summary>
         public ViewModelProfile()
         {
             CreateMap<IGroup, GroupViewModel>()
